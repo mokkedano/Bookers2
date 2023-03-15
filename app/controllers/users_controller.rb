@@ -4,14 +4,16 @@ class UsersController < ApplicationController
     # @user = User.find(params[:id])
     # @books = @user.books
     @book = Book.new
+    @user = User.find(params[:id])
+    @books = @user.books
   end
   
   
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    @book.save
-      redirect_to book_path(@book.id)
+    # @book = Book.new(book_params)
+    # @book.user_id = current_user.id
+    # @book.save
+    #   redirect_to book_path(@book.id)
   
   end
   
@@ -33,4 +35,10 @@ class UsersController < ApplicationController
   def edit
   
   end
+  
+  
+  private
+  # def book_params
+  #   params.require(:book).permit(:title, :body)
+  # end
 end
