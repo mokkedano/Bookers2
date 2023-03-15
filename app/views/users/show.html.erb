@@ -1,10 +1,46 @@
 
+<% if
+
+
+if current_user
+      flash[:notice] = "Signed in successfully."
+      user_path(current_user.id)
+    else
+      flash[:notice] = "Welcome! You have signed up successfully."
+      user_path(current_user.id)
+    end
+
+
+
+
+
+
+
 <!--ユーザー情報-->
 <!--<div>-->
   <h2>User info</h2>
 
+  <%= image_tag @user.get_profile_image(100,100) %>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= @user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+
+  <%= link_to "設定", edit_user_path %>
+
+
 
 <!--</div>-->
+
 
 
 
@@ -39,7 +75,9 @@
 <% end %>
 
 
-<!--投稿一覧-->
+
+
+<!--自分の投稿一覧-->
 <h2>Books</h2>
 
   <table>

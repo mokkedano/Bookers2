@@ -3,8 +3,17 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-    books_path
+    if current_user
+      flash[:notice] = "Signed in successfully."
+      user_path(current_user.id)
+    else
+      flash[:notice] = "Welcome! You have signed up successfully."
+      user_path(current_user.id)
+    end
   end
+  
+  
+  
 
 
 
