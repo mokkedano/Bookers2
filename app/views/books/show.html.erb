@@ -1,2 +1,77 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+
+<% flash.each do |message_type, message| %>
+  <div><%= message %></div>
+<% end %>
+
+
+
+<!--ユーザー情報-->
+  <h2>User info</h2>
+
+  <%= image_tag @user.get_profile_image(100,100) %>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= @user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+
+  <%= link_to "設定", edit_user_path(@user) %>
+
+
+
+
+
+<!--新規投稿フォーム-->
+<h2>New book</h2>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_with model: @book, method: :post do |f| %>
+
+  <div class="field">
+    <%= f.label :title,"Title" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body,"Opinion" %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Create Book' %>
+  </div>
+
+<% end %>
+
+
+
+<!--自分の投稿詳細-->
+<h2>Book detail</h2>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><%= image_tag @user.get_profile_image(80,80) %></td>
+        <td><%= @books.title %></td>
+        <td><%= @books.body %></td>
+        <td><%= link_to "Edit", edit_book_path(@books.id) %></td>
+        <td><%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+      </tr>
+    </tbody>
+  </table>
