@@ -27,37 +27,45 @@
 
               <% if user_signed_in? %>
               <li>
-                <%= link_to "Home", user_path(current_user.id), class: "nav-link text-light" %>
-                  <i class="fas fa-home" style="color: #ffffff;"></i>
+                <%= link_to user_path(current_user.id), class: "nav-link text-light" do %>
+                  <i class="fas fa-home" style="color: #ffffff;"></i> Home
+                <% end %>
               </li>
               <li>
-                <%= link_to "Users", users_path, class: "nav-link text-light" %>
-                  <i class="fas fa-users" style="color: #ffffff;"></i>
+                <%= link_to users_path, class: "nav-link text-light" do %>
+                  <i class="fas fa-users" style="color: #ffffff;"></i> Users
+                <% end %>
               </li>
               <li>
-                <%= link_to "Books", books_path, class: "nav-link text-light" %>
-                  <i class="fas fa-book-open" style="color: #ffffff;"></i>
+                <%= link_to books_path, class: "nav-link text-light" do %>
+                  <i class="fas fa-book-open" style="color: #ffffff;"></i> Books
+                <% end %>
               </li>
               <li>
-                <%= link_to "Log out",destroy_user_session_path, class: "nav-link text-light", method: :delete %>
-                  <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i>
+                <%= link_to destroy_user_session_path, class: "nav-link text-light", method: :delete do %>
+                  <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i> Log out
+                <% end %>
               </li>
               <% else %>
               <li>
-                <%= link_to "Home", root_path, class: "nav-link text-light" %>
-                  <i class="fas fa-home" style="color: #ffffff;"></i>
+                <%= link_to root_path, class: "nav-link text-light" do %>
+                  <i class="fas fa-home" style="color: #ffffff;"></i> Home
+                <% end %>
               </li>
               <li>
-                <%= link_to "About", about_path, class: "nav-link text-light" %>
-                  <i class="fas fa-link" style="color: #ffffff;"></i>
+                <%= link_to about_path, class: "nav-link text-light" do %>
+                  <i class="fas fa-link" style="color: #ffffff;"></i> About
+                <% end %>
               </li>
               <li>
-                <%= link_to "Sign up", new_user_registration_path, class: "nav-link text-light" %>
-                  <i class="fas fa-user-plus" style="color: #ffffff;"></i>
+                <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
+                  <i class="fas fa-user-plus" style="color: #ffffff;"></i> Sign up
+                <% end %>
               </li>
               <li>
-                <%= link_to "Log in", new_user_session_path, class: "nav-link text-light" %>
-                  <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>
+                <%= link_to new_user_session_path, class: "nav-link text-light" do %>
+                  <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i> Log in
+                <% end %>
               </li>
               <% end %>
             </ul>
@@ -72,9 +80,6 @@
       <p id="natice"></p>
       <%= yield %>
     </main>
-
-
-
 
 
 
