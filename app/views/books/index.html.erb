@@ -1,9 +1,14 @@
 
-<%= render partial: 'users/sidemenu', locals: { user: @user, book: @book } %>
-
-<%= render partial: 'users/list', locals: { user: @user, books: @books } %>
-
-
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: 'users/sidemenu', locals: { user: @user, book: @book } %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <%= render partial: 'users/list', locals: { user: @user, books: @books } %>
+   </div>
+  </div>
+</div>
 
 
 
