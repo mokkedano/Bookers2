@@ -1,5 +1,5 @@
-<!--投稿一覧-->
 
+<!--投稿一覧-->
 <h2>Books</h2>
 
 
@@ -18,7 +18,7 @@
   <tbody>
     <tr>
       <td>
-        <%= link_to user_path(user) do %>
+        <%= link_to user_path(book.user_id) do %>
           <%= image_tag book.user.get_profile_image(80,80) %>
         <% end %>
       </td>

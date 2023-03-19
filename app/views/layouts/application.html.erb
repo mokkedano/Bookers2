@@ -77,7 +77,10 @@
 
 
     <main>
-      <p id="notice"></p>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+
       <%= yield %>
     </main>
 
